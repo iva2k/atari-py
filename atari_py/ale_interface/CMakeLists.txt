@@ -60,10 +60,9 @@ if(APPLE)
   add_definitions(-DBSPF_MAC_OSX)
   include_directories(/System/Library/Frameworks/vecLib.framework/Versions/Current/Headers)
   set(CMAKE_SHARED_LIBRARY_SUFFIX ".so")
-#endif()
-#
-#if(WIN32 OR MINGW)
-elseif(WIN32 OR MINGW)
+endif()
+
+if(WIN32 OR MINGW)
   add_definitions(-DBSPF_WIN32)
   list(APPEND SOURCES ${SOURCE_DIR}/os_dependent/SettingsWin32.cxx ${SOURCE_DIR}/os_dependent/OSystemWin32.cxx ${SOURCE_DIR}/os_dependent/FSNodeWin32.cxx)
 else()
