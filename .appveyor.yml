@@ -1,5 +1,10 @@
 environment:
-  MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
+  global:
+    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
+    # /E:ON and /V:ON options are not enabled in the batch script intepreter
+    # See: http://stackoverflow.com/a/13751649/163740
+    #? - CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\appveyor\\run_with_env.cmd"
+    - MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
   matrix:
     #- PYTHON: "C:\\Python27"
     #- PYTHON: "C:\\Python35"
@@ -13,9 +18,16 @@ init:
   - cmd: set PATH=%MINGW_DIR%;%PATH%
 
 install:
+  # Upgrade to the latest version of pip to avoid it displaying warnings
+  # about it being out of date.
+  - "python -m pip install --upgrade pip"
   - "%PYTHON%\\python.exe -m pip install wheel"
 
-build: off
+#build: off
+build_script:
+  # Build the compiled extension
+  #?- "%CMD_IN_ENV% python setup.py build"
+  - "%PYTHON%\\python.exe setup.py build"
 
 before_test:
   - "%PYTHON%\\python.exe setup.py bdist_wheel"
