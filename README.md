@@ -1,6 +1,7 @@
 # atari_py
 
 [![Build Status](https://travis-ci.org/iva2k/atari-py.svg?branch=master)](https://travis-ci.org/iva2k/atari-py)
+[![Build status](https://ci.appveyor.com/api/projects/status/eucf26971f5k9cli?svg=true)](https://ci.appveyor.com/project/iva2k/atari-py)
 
 A Windows-MSYS2-MinGW compatible version of latest as of 2018-1112 from [https://github.com/openai/atari-py](https://github.com/openai/atari-py), which in turn is a packaged and slightly-modified version of [https://github.com/bbitmaster/ale_python_interface](https://github.com/bbitmaster/ale_python_interface).
 
