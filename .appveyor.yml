@@ -1,11 +1,16 @@
 environment:
+  MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
   matrix:
-    - PYTHON: "C:\\Python27"
-    - PYTHON: "C:\\Python35"
+    #- PYTHON: "C:\\Python27"
+    #- PYTHON: "C:\\Python35"
     - PYTHON: "C:\\Python36"
-    - PYTHON: "C:\\Python27-x64"
-    - PYTHON: "C:\\Python35-x64"
+    #- PYTHON: "C:\\Python27-x64"
+    #- PYTHON: "C:\\Python35-x64"
     - PYTHON: "C:\\Python36-x64"
+
+init:
+  #- cmd: set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+  - cmd: set PATH=%MINGW_DIR%;%PATH%
 
 install:
   - "%PYTHON%\\python.exe -m pip install wheel"
