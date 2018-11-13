@@ -81,7 +81,7 @@ ale_c = Library('ale_c',
 
 
 setup(name='atari-py',
-      version='0.1.4',
+      version='0.1.6',
       description='Python bindings to Atari games',
       url='https://github.com/iva2k/atari-py',
       author='OpenAI',
